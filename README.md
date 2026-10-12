@@ -1,3 +1,4 @@
+
 ## Entidades seleccionadas para persistencia (Laboratorio 7)
 
 Para esta entrega se seleccionaron cuatro entidades del dominio de OficioYa
