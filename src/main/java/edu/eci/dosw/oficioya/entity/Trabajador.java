@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Trabajadores")
@@ -33,28 +35,44 @@ public class Trabajador extends Usuario {
     @Column(name = "total_trabajos", nullable = false)
     private Long totalTrabajos = 0L;
 
+    @OneToMany(mappedBy = "trabajador", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Trabajador_tiene_job> jobs = new ArrayList<>();
+
     public Trabajador() {
         super();
     }
 
-    public Trabajador(String email,
-            Long phone,
-            String username,
-            String full_name,
-            String password,
-            Boolean statusAvailable,
-            byte[] profilePhoto,
-            BigDecimal priceRate,
-            Double promedioReputacion,
-            Boolean esPausado,
-            Long totalTrabajos) {
-        super(email, phone, username, full_name, password);
+    public Trabajador(String email, 
+                      Long phone, 
+                      String username, 
+                      String fullName, 
+                      String password,
+                      Boolean statusAvailable, 
+                      byte[] profilePhoto, 
+                      BigDecimal priceRate, 
+                      Double promedioReputacion, 
+                      Boolean esPausado, 
+                      Long totalTrabajos) {
+        super(email, phone, username, fullName, password);
         this.statusAvailable = statusAvailable;
         this.profilePhoto = profilePhoto;
         this.priceRate = priceRate;
         this.promedioReputacion = promedioReputacion;
         this.esPausado = esPausado;
         this.totalTrabajos = totalTrabajos;
+    }
+
+    public void agregarJob(Job job, boolean esPrincipal) {
+        Trabajador_tiene_job trabajador_tiene_job = new Trabajador_tiene_job(this, job, esPrincipal);
+        this.jobs.add(trabajador_tiene_job);
+    }
+
+    public List<Trabajador_tiene_job> getJobs() {
+        return jobs;
+    }
+
+    public void setJobs(List<Trabajador_tiene_job> jobs) {
+        this.jobs = jobs;
     }
 
     public Boolean getStatusAvailable() {
