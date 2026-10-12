@@ -1,4 +1,5 @@
 
+
 ## Entidades seleccionadas para persistencia (Laboratorio 7)
 
 Para esta entrega se seleccionaron cuatro entidades del dominio de OficioYa
@@ -35,3 +36,4 @@ que cubren las funcionalidades de **autenticación** y **gestión de trabajadore
   en los modelos públicos; solo son de uso de la administración del sistema.
 - Las demás entidades del diagrama (solicitudes, reputación, notificaciones, penalizaciones,
   zonas de cobertura y categorías especiales) se persistirán en siguientes iteraciones.
+
