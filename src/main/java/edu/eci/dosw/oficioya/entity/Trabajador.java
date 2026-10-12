@@ -38,16 +38,16 @@ public class Trabajador extends Usuario {
     }
 
     public Trabajador(String email,
-                      Long phone,
-                      String username,
-                      String full_name,
-                      String password,
-                      Boolean statusAvailable,
-                      byte[] profilePhoto,
-                      BigDecimal priceRate,
-                      Double promedioReputacion,
-                      Boolean esPausado,
-                      Long totalTrabajos) {
+            Long phone,
+            String username,
+            String full_name,
+            String password,
+            Boolean statusAvailable,
+            byte[] profilePhoto,
+            BigDecimal priceRate,
+            Double promedioReputacion,
+            Boolean esPausado,
+            Long totalTrabajos) {
         super(email, phone, username, full_name, password);
         this.statusAvailable = statusAvailable;
         this.profilePhoto = profilePhoto;
@@ -69,7 +69,7 @@ public class Trabajador extends Usuario {
         return profilePhoto;
     }
 
-    public void setProfilePhoto(byte[] profilePhoto ) {
+    public void setProfilePhoto(byte[] profilePhoto) {
         this.profilePhoto = profilePhoto;
     }
 
