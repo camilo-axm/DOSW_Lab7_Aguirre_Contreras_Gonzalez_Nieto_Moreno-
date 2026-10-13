@@ -37,3 +37,28 @@ que cubren las funcionalidades de **autenticación** y **gestión de trabajadore
 - Las demás entidades del diagrama (solicitudes, reputación, notificaciones, penalizaciones,
   zonas de cobertura y categorías especiales) se persistirán en siguientes iteraciones.
 
+## PARTE 14 - Verificacion de las pruebas con uso de H2
+
+![Pruebas con H2](src/main/resources/docs/images/pruebas-h2-1.png)
+
+*Figura 1. Ejecución de `mvn test` con todas las pruebas aprobadas*
+
+
+![Pruebas con H2](src/main/resources/docs/images/pruebas-h2-2.png)
+
+*Figura 2. uso de H2 para la ejecucion de las pruebas*
+
+## Bibliografia
+
+
+Docker, Inc. (s. f.). postgres [Imagen oficial de Docker]. Docker Hub. https://hub.docker.com/_/postgres
+
+H2 Database Engine. (s. f.). Features. http://www.h2database.com/html/features.html
+
+Anthropic. (2026, 13 de octubre). Claude Sonnet 5.5 [Modelo de lenguaje de gran tamaño]. https://claude.ai
+
+HowToDoInJava. (s. f.). Spring Boot @DataJpaTest. https://howtodoinjava.com/spring-boot2/testing/datajpatest-annotation
+
+MapStruct. (s. f.). MapStruct 1.6 reference guide. https://mapstruct.org/documentation/1.6/reference/html
+
+OpenAI. (2026). ChatGPT ([MODELO, p. ej. GPT-5]) [Modelo de lenguaje de gran tamaño]. https://chatgpt.com
