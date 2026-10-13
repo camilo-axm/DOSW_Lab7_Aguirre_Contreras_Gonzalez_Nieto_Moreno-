@@ -9,33 +9,33 @@ import java.util.Objects;
 public class Trabajador_tiene_job_id implements Serializable {
 
     @Column(name = "id_trabajador")
-    private Long id_trabajador;
+    private Long idTrabajador;
 
     @Column(name = "id_job")
-    private Long id_job;
+    private Long idJob;
 
     public Trabajador_tiene_job_id() {
     }
 
-    public Trabajador_tiene_job_id(Long id_trabajador, Long id_job) {
-        this.id_trabajador = id_trabajador;
-        this.id_job = id_job;
+    public Trabajador_tiene_job_id(Long idTrabajador, Long idJob) {
+        this.idTrabajador = idTrabajador;
+        this.idJob = idJob;
     }
 
-    public Long getId_trabajador() {
-        return id_trabajador;
+    public Long getIdTrabajador() {
+        return idTrabajador;
     }
 
-    public void setId_trabajador(Long id_trabajador) {
-        this.id_trabajador = id_trabajador;
+    public void setIdTrabajador(Long idTrabajador) {
+        this.idTrabajador = idTrabajador;
     }
 
-    public Long getId_job() {
-        return id_job;
+    public Long getIdJob() {
+        return idJob;
     }
 
-    public void setId_job(Long id_job) {
-        this.id_job = id_job;
+    public void setIdJob(Long idJob) {
+        this.idJob = idJob;
     }
 
     @Override
@@ -44,12 +44,12 @@ public class Trabajador_tiene_job_id implements Serializable {
             return true;
         if (!(o instanceof Trabajador_tiene_job_id that))
             return false;
-        return Objects.equals(id_trabajador, that.id_trabajador) &&
-                Objects.equals(id_job, that.id_job);
+        return Objects.equals(idTrabajador, that.idTrabajador) &&
+                Objects.equals(idJob, that.idJob);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id_trabajador, id_job);
+        return Objects.hash(idTrabajador, idJob);
     }
 }

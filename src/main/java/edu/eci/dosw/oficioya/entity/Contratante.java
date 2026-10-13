@@ -4,31 +4,44 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "Contratantes")
-@PrimaryKeyJoinColumn(name = "id_contratante")
-public class Contratante extends Usuario {
+public class Contratante {
 
-    @Column(name = "profile_photo")
-    private byte[] profilePhoto;
+    @Id
+    @Column(name = "id_contratante")
+    private Long id;
+
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @MapsId
+    @JoinColumn(name = "id_contratante")
+    private Usuario usuario;
+
+    @Column(name = "promedio_reputacion")
+    private Double promedioReputacion = 0.0;
 
     public Contratante() {
-        super();
     }
 
-    public Contratante(String email,
-            Long phone,
-            String username,
-            String full_name,
-            String password,
-            byte[] profilePhoto) {
-        super(email, phone, username, full_name, password);
-        this.profilePhoto = profilePhoto;
+    public Long getId() {
+        return id;
     }
 
-    public byte[] getProfilePhoto() {
-        return profilePhoto;
+    public void setId(Long id) {
+        this.id = id;
     }
 
-    public void setProfilePhoto(byte[] profilePhoto) {
-        this.profilePhoto = profilePhoto;
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Double getPromedioReputacion() {
+        return promedioReputacion;
+    }
+
+    public void setPromedioReputacion(Double promedioReputacion) {
+        this.promedioReputacion = promedioReputacion;
     }
 }

@@ -8,9 +8,7 @@ import java.util.Optional;
 
 public interface ContratanteRepository extends JpaRepository<Contratante, Long> {
 
-    Optional<Contratante> findByUsername(String username);
+    Optional<Contratante> findByUsuarioEmail(String email);
 
-    Optional<Contratante> findByEmail(String email);
-
-    List<Contratante> findByFullNameContainingIgnoreCase(String fullName);
+    List<Contratante> findByUsuarioFullNameContainingIgnoreCase(String fullName);
 }
