@@ -10,11 +10,11 @@ import java.util.Optional;
 public interface TrabajadorTieneJobRepository
         extends JpaRepository<Trabajador_tiene_job, Trabajador_tiene_job_id> {
 
-    List<Trabajador_tiene_job> findByTrabajador_IdUsuario(Long idTrabajador);
+    List<Trabajador_tiene_job> findByTrabajador_Id(Long idTrabajador);
 
-    List<Trabajador_tiene_job> findByJob_IdJob(Long idJob);
+    List<Trabajador_tiene_job> findByJob_Id(Long idJob);
 
-    Optional<Trabajador_tiene_job> findByTrabajador_IdUsuarioAndEsPrincipalTrue(Long idTrabajador);
+    Optional<Trabajador_tiene_job> findByTrabajador_IdAndEsPrincipalTrue(Long idTrabajador);
 
-    boolean existsByTrabajador_IdUsuarioAndEsPrincipalTrue(Long idTrabajador);
+    boolean existsByTrabajador_IdAndEsPrincipalTrue(Long idTrabajador);
 }
