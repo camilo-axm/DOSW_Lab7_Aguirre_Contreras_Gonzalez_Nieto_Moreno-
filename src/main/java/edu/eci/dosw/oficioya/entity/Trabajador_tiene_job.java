@@ -11,12 +11,12 @@ public class Trabajador_tiene_job {
     private Trabajador_tiene_job_id id = new Trabajador_tiene_job_id();
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @MapsId("idTrabajador")
+    @MapsId("id_trabajador")
     @JoinColumn(name = "id_trabajador", nullable = false)
     private Trabajador trabajador;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @MapsId("idJob")
+    @MapsId("id_job")
     @JoinColumn(name = "id_job", nullable = false)
     private Job job;
 
