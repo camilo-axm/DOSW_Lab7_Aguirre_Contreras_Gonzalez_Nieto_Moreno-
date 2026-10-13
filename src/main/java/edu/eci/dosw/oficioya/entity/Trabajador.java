@@ -9,15 +9,23 @@ import java.util.List;
 
 @Entity
 @Table(name = "Trabajadores")
-@PrimaryKeyJoinColumn(name = "id_trabajador")
-public class Trabajador extends Usuario {
+public class Trabajador {
+
+    @Id
+    @Column(name = "id_trabajador")
+    private Long id;
+
+    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @MapsId
+    @JoinColumn(name = "id_trabajador")
+    private Usuario usuario;
 
     @NotNull
     @Column(name = "status_available", nullable = false)
     private Boolean statusAvailable = false;
 
-    @Column(name = "profile_photo")
-    private byte[] profilePhoto;
+    @Column(length = 20)
+    private String status;
 
     @NotNull
     @Column(name = "price_rate", nullable = false, precision = 9, scale = 2)
@@ -28,10 +36,6 @@ public class Trabajador extends Usuario {
     private Double promedioReputacion = 0.0;
 
     @NotNull
-    @Column(name = "es_pausado", nullable = false)
-    private Boolean esPausado = false;
-
-    @NotNull
     @Column(name = "total_trabajos", nullable = false)
     private Long totalTrabajos = 0L;
 
@@ -39,40 +43,26 @@ public class Trabajador extends Usuario {
     private List<Trabajador_tiene_job> jobs = new ArrayList<>();
 
     public Trabajador() {
-        super();
-    }
-
-    public Trabajador(String email, 
-                      Long phone, 
-                      String username, 
-                      String fullName, 
-                      String password,
-                      Boolean statusAvailable, 
-                      byte[] profilePhoto, 
-                      BigDecimal priceRate, 
-                      Double promedioReputacion, 
-                      Boolean esPausado, 
-                      Long totalTrabajos) {
-        super(email, phone, username, fullName, password);
-        this.statusAvailable = statusAvailable;
-        this.profilePhoto = profilePhoto;
-        this.priceRate = priceRate;
-        this.promedioReputacion = promedioReputacion;
-        this.esPausado = esPausado;
-        this.totalTrabajos = totalTrabajos;
     }
 
     public void agregarJob(Job job, boolean esPrincipal) {
-        Trabajador_tiene_job trabajador_tiene_job = new Trabajador_tiene_job(this, job, esPrincipal);
-        this.jobs.add(trabajador_tiene_job);
+        this.jobs.add(new Trabajador_tiene_job(this, job, esPrincipal));
     }
 
-    public List<Trabajador_tiene_job> getJobs() {
-        return jobs;
+    public Long getId() {
+        return id;
     }
 
-    public void setJobs(List<Trabajador_tiene_job> jobs) {
-        this.jobs = jobs;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public Boolean getStatusAvailable() {
@@ -83,12 +73,12 @@ public class Trabajador extends Usuario {
         this.statusAvailable = statusAvailable;
     }
 
-    public byte[] getProfilePhoto() {
-        return profilePhoto;
+    public String getStatus() {
+        return status;
     }
 
-    public void setProfilePhoto(byte[] profilePhoto) {
-        this.profilePhoto = profilePhoto;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public BigDecimal getPriceRate() {
@@ -107,19 +97,19 @@ public class Trabajador extends Usuario {
         this.promedioReputacion = promedioReputacion;
     }
 
-    public Boolean getEsPausado() {
-        return esPausado;
-    }
-
-    public void setEsPausado(Boolean esPausado) {
-        this.esPausado = esPausado;
-    }
-
     public Long getTotalTrabajos() {
         return totalTrabajos;
     }
 
     public void setTotalTrabajos(Long totalTrabajos) {
         this.totalTrabajos = totalTrabajos;
+    }
+
+    public List<Trabajador_tiene_job> getJobs() {
+        return jobs;
+    }
+
+    public void setJobs(List<Trabajador_tiene_job> jobs) {
+        this.jobs = jobs;
     }
 }

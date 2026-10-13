@@ -12,7 +12,7 @@ public class Job {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_job")
-    private Long id_job;
+    private Long id;
 
     @NotBlank
     @Size(max = 250)
@@ -31,12 +31,12 @@ public class Job {
         this.activo = activo;
     }
 
-    public Long getId_job() {
-        return id_job;
+    public Long getId() {
+        return id;
     }
 
-    public void setId_job(Long id_job) {
-        this.id_job = id_job;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNombre() {
